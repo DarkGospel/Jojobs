@@ -20,7 +20,7 @@
             @foreach($mensajes as $mesaje)
                 <tr>
                     <td>{{$mesaje->Titulo}}</td>
-                    <td>{{$mesaje->id_usuario}}</td>
+                    <td>{{$mesaje->emisor}}</td>
                     <td>{{str_limit($mesaje->Descripcion, 25)}}</td>
                     <td>{{$mesaje->fecha}}</td>
                     
@@ -32,7 +32,7 @@
                 {{$mensajes->links()}}                
             </div>
             <div class="clearfix">
-                <a href="{{route("mensaje")}}"> <button class="btn btn-primary">+</button></a>
+                <a href="{{route("mensaje")}}"> <button class="btn btn-primary">Nuevo mensaje</button></a>
             </div>
                 </div>   
             </div>

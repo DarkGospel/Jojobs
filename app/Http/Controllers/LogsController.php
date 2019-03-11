@@ -13,17 +13,18 @@ class LogsController extends Controller
         $this->middleware('auth');
         
     }
+    //devuelve la vista del listado logs
     public function index()
     {
         $usuario = \Auth::user()->name;
         $rol = \Auth::user()->rol;
         DB::select('call logs("'.$usuario.'", "Listar", "'.$rol.'")');
-        $logs= Log::paginate(8);//5 indica el numero de elementos por pagina        
+        $logs= Log::paginate(8);//8 indica el numero de elementos por pagina        
         return view('logs', [
             'logs' => $logs
         ]);
     }
-    
+    //generar pdf del listado de los procedimientos almacenados
     public function pdf(){
         $logs = Log::all();
         $pdf = PDF::loadView('pdflogs', compact('logs'));

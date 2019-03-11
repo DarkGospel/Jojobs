@@ -29,6 +29,6 @@ class User extends Authenticatable
     ];
     
     public function mensajes() {
-        return $this->hasMany('App\mensajes');
+        return $this->hasMany('App\mensajes', 'id_receptor');
     }
 }

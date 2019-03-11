@@ -65,3 +65,24 @@ td{
     margin-left: 25px;
     margin-bottom: 15px;
 }
+#contenido{
+    width: 100%;
+    height: auto;
+}
+#navegacion{
+    background-color: black;
+}
+.cabecero{
+    background-color: #00A6C7;
+}
+.perfil{
+    width: 95px;
+    height: 75px;
+    align-items: center;
+    vertical-align: central;
+}
+#btneditar{
+    float: right;
+    margin-top: 15px;
+    
+}

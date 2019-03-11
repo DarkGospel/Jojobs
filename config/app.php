@@ -161,6 +161,7 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Anhskohbo\NoCaptcha\NoCaptchaServiceProvider::class,
+        Unisharp\Ckeditor\ServiceProvider::class,
         /*Para generar pdf*/ 
         Barryvdh\DomPDF\ServiceProvider::class,
         /*

@@ -8,7 +8,7 @@
             <h1>Listado de Solicitudes </h1>
             <table class="table">
                 <thead class="thead-dark">
-                <tr>
+                <tr align="center">
                     <th>Nombre</th>
                     <th>Apellido1</th>
                     

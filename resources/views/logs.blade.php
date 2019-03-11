@@ -7,7 +7,7 @@
             <h1>Listado de logs <a href="{{ route('logspdf')}}"><img class="alineadoTextoImagen" src="{{asset('images/PDF.png')}}" width="40px" height="40px"/></a></h1>
             <table class="table">
                 <thead class="thead-dark">
-                <tr>
+                <tr align="center">
                     <th>Usuario</th>
                     <th>Acción</th>
                     <th>Rol</th>
@@ -26,6 +26,14 @@
                     @break
                     @case("Listar")
                     <tr class="bg-primary">
+                        <td>{{$log->usuario}}</td>
+                        <td>{{$log->accion}}</td>
+                        <td>{{$log->rol}}</td>
+                        <td>{{$log->fecha}}</td>
+                    </tr>
+                    @break
+                    @default
+                    <tr class="bg-info">
                         <td>{{$log->usuario}}</td>
                         <td>{{$log->accion}}</td>
                         <td>{{$log->rol}}</td>

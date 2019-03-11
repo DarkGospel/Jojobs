@@ -11,7 +11,6 @@
             <table class="table">
                 <thead class="thead-dark">
                 <tr>
-                    <th>Foto</th>
                     <th>Nombre</th>
                     <th>Apellido1</th>
                     <th>Rol</th>
@@ -20,22 +19,12 @@
             @foreach($users as $user)
                 @if($user->activo == true)
                     <tr class="bg-success">
-                        @if($user->foto != null)
-                        <td> <img src="{{ asset('storage/users/'.$user->photo) }}"  width="35px" height="35px"/></td>
-                        @else
-                        <td> <img src="{{ asset('images/imagenpordefecto.png')}}" width="35px" height="35px"/></td>
-                        @endif
                         <td>{{$user->name}}</td>
                         <td>{{$user->surname1}}</td>
                         <td>{{$user->rol}}</td>
                     </tr>
                     @else
                     <tr class="bg-primary">
-                        @if($user->foto != null)
-                        <td> <img src="{{ asset('storage/users/'.$user->photo) }}"  width="35px" height="35px"/></td>
-                        @else
-                        <td> <img src="{{ asset('images/imagenpordefecto.png')}}" width="35px" height="35px"/></td>
-                        @endif
                         <td>{{$user->name}}</td>
                         <td>{{$user->surname1}}</td>
                         <td>{{$user->rol}}</td>

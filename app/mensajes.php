@@ -10,6 +10,6 @@ class mensajes extends Model
     
     //Relación de muchos a uno
     public function user(){
-        return $this->belongsTo('App\User', 'usuarios_id');
+        return $this->belongsTo('App\User', 'id');
     }
 }

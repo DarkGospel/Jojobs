@@ -17,7 +17,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
-Route::get('/configuracion','UserController@config')->name('config');
+Route::get('/configuracion/{id}','UserController@config')->name('config');
 Route::get('/eliminar/{id}','UserController@eliminar')->name('eliminar');
 Route::get('/activar/{id}','UserController@activar')->name('activar');
 Route::get('/desactivar/{id}','UserController@desactivar')->name('desactivar');
@@ -28,5 +28,8 @@ Route::get('/user/avatar/{filename}','UserController@getImage')->name('user.avat
 Route::get('/logs','LogsController@Index')->name('logs');
 Route::get('pdflogs', 'LogsController@pdf')->name('logspdf');
 Route::get('pdf', 'UserController@pdf')->name('pdf');
+Route::get('/cv', 'UserController@cv')->name('cv');
+Route::get('/perfil/{id}', 'UserController@perfil')->name('perfil');
+Route::post('/enviar','MessageController@enviar')->name('enviar');
 Route::get('/mensajes', 'MessageController@listar')->name('listarmensajes');
 Route::get('/nuevomensaje', 'UserController@nuevo')->name('mensaje');

@@ -7,7 +7,7 @@
             @include('includes.message')
             <h1>Listado de Usuarios <a href="{{route('pdf')}}"><img class="alineadoTextoImagen" src="{{asset('images/PDF.png')}}" width="40px" height="40px"/></a></h1>
             <table class="table">
-                <thead class="thead-dark">
+                <thead class="thead-dark" align="center">
                 <tr>
                     <th>Foto</th>
                     <th>Nombre</th>
@@ -26,20 +26,24 @@
                         @else
                         <td> <img src="{{ asset('images/imagenpordefecto.png')}}" class="foto"/></td>
                         @endif
-                        <td>{{$user->name}}</td>
+                        <td><a href="{{route('perfil', [$id= $user->id])}}" style="color:#FFFF;">{{$user->name}}</a></td>
                         <td>{{$user->surname1}}</td>
                         <td>{{$user->rol}}</td>
-                        @if(Auth::user()->rol == "Administrador")
-                        <td>
-                            <a data-toggle="modal" data-target="#{{$user->id}}"><img src="{{asset('images/borrar.png')}}" width="20px" height="20px"></a>
-                            <a href="{{-- route('listpdf')--}}"><img class="alineadoTextoImagen" src="{{asset('images/editar.png')}}" width="20px" height="20px"/></a>
-                            <a href="{{-- route('listpdf')--}}"><img class="alineadoTextoImagen" src="{{asset('images/mensajes.png')}}" width="28px" height="28px"/></a>
-                            @if($user->activo == 0)
-                            <a href="{{route('activar', [$id=$user->id])}}"><img src="{{ asset('images/activar.png')}}" class="foto"/></a>
+                        @if(Auth::user()->rol == "Administrador" )
+                            @if($user->name != Auth::user()->name)
+                                <td>
+                                    <a data-toggle="modal" data-target="#{{$user->id}}"><img src="{{asset('images/borrar.png')}}" width="20px" height="20px"></a>
+                                    <a href="{{route('config', [$id=$user->id])}}"><img class="alineadoTextoImagen" src="{{asset('images/editar.png')}}" width="20px" height="20px"/></a>
+                                    <a href="{{ route('mensaje')}}"><img class="alineadoTextoImagen" src="{{asset('images/mensajes.png')}}" width="28px" height="28px"/></a>
+                                    @if($user->activo == 0)
+                                        <a href="{{route('activar', [$id=$user->id])}}"><img src="{{ asset('images/activar.png')}}" class="foto"/></a>
+                                    @else
+                                        <a href="{{route('desactivar', [$id=$user->id])}}"><img src="{{ asset('images/desactivar.png')}}" class="foto"/></a>
+                                    @endif
+                                </td>
                             @else
-                           <a href="{{route('desactivar', [$id=$user->id])}}"><img src="{{ asset('images/desactivar.png')}}" class="foto"/></a>
+                                <td></td>
                             @endif
-                        </td>
                         @endif
                     </tr>
                     @else
@@ -49,14 +53,14 @@
                         @else
                         <td> <img src="{{ asset('images/imagenpordefecto.png')}}" class="foto"/></td>
                         @endif
-                        <td>{{$user->name}}</td>
+                        <td><a href="{{route('perfil', [$id= $user->id])}}" style="color:#FFFF;">{{$user->name}}</a></td>
                         <td>{{$user->surname1}}</td>
                         <td>{{$user->rol}}</td>
                         @if(Auth::user()->rol == "Administrador")
                         <td>
                             <a data-toggle="modal" data-target="#{{$user->id}}"><img src="{{asset('images/borrar.png')}}" width="20px" height="20px"></a>
-                            <a href="{{-- route('listpdf')--}}"><img class="alineadoTextoImagen" src="{{asset('images/editar.png')}}" width="20px" height="20px"/></a>
-                            <a href="{{-- route('listpdf')--}}"><img class="alineadoTextoImagen" src="{{asset('images/mensajes.png')}}" width="28px" height="28px"/></a>
+                            <a href="{{route('config', [$id=$user->id])}}"><img class="alineadoTextoImagen" src="{{asset('images/editar.png')}}" width="20px" height="20px"/></a>
+                            <a href="{{route('mensaje')}}"><img class="alineadoTextoImagen" src="{{asset('images/mensajes.png')}}" width="28px" height="28px"/></a>
                             @if($user->activo == 0)
                             <a href="{{route('activar', [$id=$user->id])}}"><img src="{{ asset('images/activar.png')}}" class="foto"/></a>
                             @else
