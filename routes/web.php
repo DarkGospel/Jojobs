@@ -10,11 +10,23 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
 Route::get('/', function () {
     return view('welcome');
 });
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'HomeController@index')->name('home');
+Route::get('/configuracion','UserController@config')->name('config');
+Route::get('/eliminar/{id}','UserController@eliminar')->name('eliminar');
+Route::get('/activar/{id}','UserController@activar')->name('activar');
+Route::get('/desactivar/{id}','UserController@desactivar')->name('desactivar');
+Route::get('/listar','UserController@listar')->name('listar');
+Route::get('/solicitudes','UserController@solicitudes')->name('solicitudes');
+Route::post('/user/update','UserController@update')->name('user.update');
+Route::get('/user/avatar/{filename}','UserController@getImage')->name('user.avatar');
+Route::get('/logs','LogsController@Index')->name('logs');
+Route::get('pdflogs', 'LogsController@pdf')->name('logspdf');
+Route::get('pdf', 'UserController@pdf')->name('pdf');
+Route::get('/mensajes', 'MessageController@listar')->name('listarmensajes');
+Route::get('/nuevomensaje', 'UserController@nuevo')->name('mensaje');
